@@ -16,8 +16,12 @@ export default function CertificateCanvas({ data }: Props) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    drawCertificate(canvas, data);
-    setIsReady(true);
+    let cancelled = false;
+    setIsReady(false);
+    drawCertificate(canvas, data).then(() => {
+      if (!cancelled) setIsReady(true);
+    });
+    return () => { cancelled = true; };
   }, [data]);
 
   function getSafeFilename(name: string) {
