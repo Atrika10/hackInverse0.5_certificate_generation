@@ -86,10 +86,10 @@ export async function drawCertificate(
   ctx.fillStyle = "rgba(255,255,255,0.88)";
   ctx.fillText("Presents", CERT_WIDTH / 2, 192);
 
-  // ── "CERTIFICATE OF PARTICIPATION" ────────────────────────────────────────
+  // ── "CERTIFICATE OF APPRECIATION" ─────────────────────────────────────────
   ctx.font = "bold 42px 'Arial Black', Impact, sans-serif";
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("CERTIFICATE OF PARTICIPATION", CERT_WIDTH / 2, 262);
+  ctx.fillText("CERTIFICATE OF APPRECIATION", CERT_WIDTH / 2, 262);
 
   // ── "TO" ──────────────────────────────────────────────────────────────────
   ctx.font = "bold 22px Arial, sans-serif";
@@ -110,6 +110,7 @@ export async function drawCertificate(
   ctx.stroke();
 
   // ── "Of [team] has successfully participated…" ────────────────────────────
+  // ── "Of [institution] for their valuable support…" ───────────────────────
   ctx.font = "17px Arial, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.85)";
   ctx.textAlign = "left";
@@ -117,7 +118,8 @@ export async function drawCertificate(
   const bodyX = 78;
   const bodyY = 487;
   const ofPrefix = "Of  ";
-  const ofSuffix = "  has successfully participated in HackInverse 0.5";
+  const ofSuffix =
+    "  for their valuable support, participation, and contribution to the successful conduct of HackInverse 0.5.";
 
   ctx.fillText(ofPrefix, bodyX, bodyY);
   const prefixW = ctx.measureText(ofPrefix).width;
@@ -125,7 +127,7 @@ export async function drawCertificate(
   ctx.fillText(data.teamName, bodyX + prefixW, bodyY);
   const teamNameW = ctx.measureText(data.teamName).width;
 
-  // Underline team name
+  // Underline team / institution name
   ctx.strokeStyle = "rgba(255,255,255,0.65)";
   ctx.lineWidth = 1;
   ctx.beginPath();
@@ -140,19 +142,27 @@ export async function drawCertificate(
   ctx.textAlign = "center";
   ctx.font = "16px Arial, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.78)";
+
   ctx.fillText(
-    "bringing together innovators, developers, and problem-solvers to build impactful technology",
-    CERT_WIDTH / 2, 530
+    "Your institution's encouragement of innovation, technology, and student excellence played a",
+    CERT_WIDTH / 2,
+    540
   );
   ctx.fillText(
-    "solutions. Your enthusiasm, creativity, and commitment to innovation are truly appreciated. We",
-    CERT_WIDTH / 2, 558
+    "significant role in fostering a competitive and inspiring environment throughout the hackathon.",
+    CERT_WIDTH / 2,
+    568
   );
   ctx.fillText(
-    "commend your dedication and active involvement throughout the event.",
-    CERT_WIDTH / 2, 586
+    "We sincerely appreciate your continued commitment to empowering young innovators and",
+    CERT_WIDTH / 2,
+    596
   );
-  ctx.fillText("We wish you continued success in your future endeavors.", CERT_WIDTH / 2, 614);
+  ctx.fillText(
+    "promoting technological advancement.",
+    CERT_WIDTH / 2,
+    624
+  );
 
   // ── Signatures ────────────────────────────────────────────────────────────
   const sigLineY  = 790;
