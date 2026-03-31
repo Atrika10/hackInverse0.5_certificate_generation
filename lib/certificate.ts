@@ -1,415 +1,336 @@
 export interface CertificateData {
-  participantName: string;
-  teamName: string;
-  eventName: string;
-  eventDate: string;
+    participantName: string;
+    teamName: string;
+    eventName: string;
+    eventDate: string;
 }
 
 const CERT_WIDTH = 1400;
 const CERT_HEIGHT = 990;
 
 export async function drawCertificate(
-  canvas: HTMLCanvasElement,
-  data: CertificateData
+    canvas: HTMLCanvasElement,
+    data: CertificateData,
 ): Promise<void> {
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-  canvas.width = CERT_WIDTH;
-  canvas.height = CERT_HEIGHT;
+    await loadFont("StrangerThings", "/fonts/Stranger-Things.ttf");
+    await loadFont("altron", "/fonts/altron.ttf");
 
-  // Load signature images (failures handled gracefully)
-  const [abhirupResult, rupshaResult] = await Promise.allSettled([
-    loadImage("/Abhirup_sign.svg"),
-    loadImage("/Rupsha_Das.png"),
-  ]);
-  const abhirupImg = abhirupResult.status === "fulfilled" ? abhirupResult.value : null;
-  const rupshaImg  = rupshaResult.status  === "fulfilled" ? rupshaResult.value  : null;
+    canvas.width = CERT_WIDTH;
+    canvas.height = CERT_HEIGHT;
 
-  // ── Background ────────────────────────────────────────────────────────────
-  ctx.fillStyle = "#0d0d0d";
-  ctx.fillRect(0, 0, CERT_WIDTH, CERT_HEIGHT);
+    // Load signatures
+    const [abhirupResult, rupshaResult] = await Promise.allSettled([
+        loadImage("/Abhirup_sign.svg"),
+        loadImage("/Rupsha_Das.png"),
+    ]);
 
-  // Circuit-board watermark (lower-right quadrant)
-  drawCircuitBoard(ctx);
+    const abhirupImg =
+        abhirupResult.status === "fulfilled" ? abhirupResult.value : null;
+    const rupshaImg =
+        rupshaResult.status === "fulfilled" ? rupshaResult.value : null;
 
-  // ── Borders ───────────────────────────────────────────────────────────────
-  ctx.strokeStyle = "#cc0000";
-  ctx.lineWidth = 3;
-  ctx.strokeRect(15, 15, CERT_WIDTH - 30, CERT_HEIGHT - 30);
+    // ── Background Image ─────────────────────
+    const bgImg = await loadImage("/bg2.svg");
 
-  ctx.strokeStyle = "#880000";
-  ctx.lineWidth = 1.5;
-  ctx.strokeRect(28, 28, CERT_WIDTH - 56, CERT_HEIGHT - 56);
+    // Draw full image
+    ctx.drawImage(bgImg, 0, 0, CERT_WIDTH, CERT_HEIGHT);
 
-  // ── Magistics logo (top-left) ─────────────────────────────────────────────
-  drawMagisticsLogo(ctx, 55, 42);
+    drawCircuitBoard(ctx);
 
-  // ── "HACKINVERSE 0.5" title ───────────────────────────────────────────────
-  const titleY = 132;
-  const titleStartX = 222;
+    // ── Borders ────────────────────────
+    ctx.strokeStyle = "#ff0000";
+    ctx.lineWidth = 4;
+    ctx.strokeRect(12, 12, CERT_WIDTH - 24, CERT_HEIGHT - 24);
 
-  ctx.textAlign = "left";
-  ctx.font = "bold 85px Impact, 'Arial Black', sans-serif";
-  ctx.fillStyle = "#cc0000";
-  ctx.shadowColor = "#ff3300";
-  ctx.shadowBlur = 6;
-  ctx.fillText("HACKINVERSE", titleStartX, titleY);
-  const hackW = ctx.measureText("HACKINVERSE").width;
-  ctx.shadowBlur = 0;
+    ctx.strokeStyle = "#990000";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(28, 28, CERT_WIDTH - 56, CERT_HEIGHT - 56);
 
-  ctx.font = "bold 75px Impact, 'Arial Black', sans-serif";
-  ctx.fillStyle = "#c0c0c0";
-  ctx.shadowColor = "#ffffff";
-  ctx.shadowBlur = 3;
-  ctx.fillText(" 0.5", titleStartX + hackW, titleY);
-  const halfW = ctx.measureText(" 0.5").width;
-  ctx.shadowBlur = 0;
+    // ── Logo ───────────────────────────
+    await drawMagisticsLogo(ctx, 90, 90);
 
-  // Double underline beneath title
-  const totalTitleW = hackW + halfW;
-  ctx.strokeStyle = "#cc0000";
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.moveTo(titleStartX, titleY + 12);
-  ctx.lineTo(titleStartX + totalTitleW, titleY + 12);
-  ctx.stroke();
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(titleStartX, titleY + 19);
-  ctx.lineTo(titleStartX + totalTitleW, titleY + 19);
-  ctx.stroke();
+    // // ── Title ──────────────────────────
+    const title = "HACKINVERSE";
+    const firstChar = title[0];
+    const lastChar = title[title.length - 1];
+    const middleChars = title.slice(1, -1);
 
-  // ── "Presents" ────────────────────────────────────────────────────────────
-  ctx.textAlign = "center";
-  ctx.font = "20px Georgia, serif";
-  ctx.fillStyle = "rgba(255,255,255,0.88)";
-  ctx.fillText("Presents", CERT_WIDTH / 2, 192);
+    const baseX = 300;
+    const y = 160;
 
-  // ── "CERTIFICATE OF APPRECIATION" ─────────────────────────────────────────
-  ctx.font = "bold 42px 'Arial Black', Impact, sans-serif";
-  ctx.fillStyle = "#ffffff";
-  ctx.fillText("CERTIFICATE OF APPRECIATION", CERT_WIDTH / 2, 262);
+    ctx.textAlign = "left";
 
-  // ── "TO" ──────────────────────────────────────────────────────────────────
-  ctx.font = "bold 22px Arial, sans-serif";
-  ctx.fillStyle = "#ffffff";
-  ctx.fillText("TO", CERT_WIDTH / 2, 318);
+    // First char (bigger)
+    ctx.font = "100px StrangerThings";
+    ctx.fillStyle = "#ff1a1a";
+    ctx.shadowColor = "#a00000";
+    ctx.shadowBlur = 50;
 
-  // ── Participant name (large, centred on underline) ────────────────────────
-  const nameFontSize = getFitFontSize(ctx, data.participantName, 870, 62, 28);
-  ctx.font = `${nameFontSize}px Georgia, 'Times New Roman', serif`;
-  ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.fillText(data.participantName, CERT_WIDTH / 2, 415);
+    ctx.fillText(firstChar, baseX, y + 15);
 
-  ctx.strokeStyle = "rgba(255,255,255,0.65)";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(185, 430);
-  ctx.lineTo(CERT_WIDTH - 185, 430);
-  ctx.stroke();
+    const firstW = ctx.measureText(firstChar).width;
 
-  // ── "Of [team] has successfully participated…" ────────────────────────────
-  // ── "Of [institution] for their valuable support…" ───────────────────────
-  ctx.font = "17px Arial, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.85)";
-  ctx.textAlign = "left";
+    // Middle text
+    ctx.font = "80px StrangerThings";
+    ctx.shadowBlur = 50;
 
-  const bodyX = 78;
-  const bodyY = 487;
-  const ofPrefix = "Of  ";
-  const ofSuffix =
-    "  for their valuable support, participation, and contribution to the successful conduct of HackInverse 0.5.";
+    const middleX = baseX + firstW;
 
-  ctx.fillText(ofPrefix, bodyX, bodyY);
-  const prefixW = ctx.measureText(ofPrefix).width;
+    ctx.fillText(middleChars, middleX, y);
 
-  ctx.fillText(data.teamName, bodyX + prefixW, bodyY);
-  const teamNameW = ctx.measureText(data.teamName).width;
+    const middleW = ctx.measureText(middleChars).width;
 
-  // Underline team / institution name
-  ctx.strokeStyle = "rgba(255,255,255,0.65)";
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(bodyX + prefixW, bodyY + 3);
-  ctx.lineTo(bodyX + prefixW + teamNameW, bodyY + 3);
-  ctx.stroke();
+    // Double underline (only middle)
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = "#ff1a1a";
 
-  ctx.fillStyle = "rgba(255,255,255,0.85)";
-  ctx.fillText(ofSuffix, bodyX + prefixW + teamNameW, bodyY);
-
-  // ── Paragraph body ────────────────────────────────────────────────────────
-  ctx.textAlign = "center";
-  ctx.font = "16px Arial, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.78)";
-
-  ctx.fillText(
-    "Your institution's encouragement of innovation, technology, and student excellence played a",
-    CERT_WIDTH / 2,
-    540
-  );
-  ctx.fillText(
-    "significant role in fostering a competitive and inspiring environment throughout the hackathon.",
-    CERT_WIDTH / 2,
-    568
-  );
-  ctx.fillText(
-    "We sincerely appreciate your continued commitment to empowering young innovators and",
-    CERT_WIDTH / 2,
-    596
-  );
-  ctx.fillText(
-    "promoting technological advancement.",
-    CERT_WIDTH / 2,
-    624
-  );
-
-  // ── Signatures ────────────────────────────────────────────────────────────
-  const sigLineY  = 790;
-  const leftSigX  = 325;
-  const rightSigX = 1075;
-  const sigW = 170;
-  const sigH = 130;
-
-  if (abhirupImg) {
-    const processed = processSignatureForDark(abhirupImg, sigW, sigH);
-    ctx.drawImage(processed, leftSigX - sigW / 2, sigLineY - sigH - 5, sigW, sigH);
-  }
-  if (rupshaImg) {
-    const processed = processSignatureForDark(rupshaImg, sigW, sigH);
-    ctx.drawImage(processed, rightSigX - sigW / 2, sigLineY - sigH - 5, sigW, sigH);
-  }
-
-  // Signature lines
-  ctx.strokeStyle = "rgba(255,255,255,0.55)";
-  ctx.lineWidth = 1;
-  for (const sx of [leftSigX, rightSigX]) {
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(sx - 145, sigLineY);
-    ctx.lineTo(sx + 145, sigLineY);
+    ctx.moveTo(middleX, y + 8);
+    ctx.lineTo(middleX + middleW, y + 8);
     ctx.stroke();
-  }
 
-  // Names & titles
-  ctx.textAlign = "center";
-  ctx.font = "15px Arial, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.88)";
-  ctx.fillText("Abhirup Datta Khan", leftSigX, sigLineY + 26);
-  ctx.font = "bold 15px Arial, sans-serif";
-  ctx.fillText("Head Organizer", leftSigX, sigLineY + 48);
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(middleX, y + 16);
+    ctx.lineTo(middleX + middleW, y + 16);
+    ctx.stroke();
 
-  ctx.font = "15px Arial, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.88)";
-  ctx.fillText("Rupsha Das", rightSigX, sigLineY + 26);
-  ctx.font = "bold 15px Arial, sans-serif";
-  ctx.fillText("Co-Organizer", rightSigX, sigLineY + 48);
+    // Last char (bigger)
+    ctx.font = "100px StrangerThings";
+    ctx.shadowBlur = 50;
 
-  // ── Certificate ID ────────────────────────────────────────────────────────
-  const certId = generateCertId(data.participantName, data.teamName);
-  ctx.font = "11px Arial, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.2)";
-  ctx.textAlign = "center";
-  ctx.fillText(`Certificate ID: ${certId}`, CERT_WIDTH / 2, CERT_HEIGHT - 42);
+    const lastX = middleX + middleW;
+
+    ctx.fillText(lastChar, lastX, y + 15);
+
+    ctx.shadowBlur = 0;
+
+    // ── Add "0.5" ──
+    ctx.font = "90px altron";
+    const text05 = "0.5";
+    const startX = lastX + 60 + ctx.measureText(lastChar).width;
+    const textWidth = ctx.measureText(text05).width;
+
+    // Create a horizontal linear gradient across the exact width of the text
+    const gradient = ctx.createLinearGradient(startX, 0, startX + textWidth, 0);
+    
+    // Add color stops to mimic the metallic reflection
+    gradient.addColorStop(0, "#4a4a4a");    // Darker gray on the far left
+    gradient.addColorStop(0.35, "#ffffff"); // Peaking to pure white
+    gradient.addColorStop(0.65, "#ffffff"); // Holding the white across the middle
+    gradient.addColorStop(1, "#333333");    // Dropping to dark gray on the far right
+
+    ctx.fillStyle = gradient;
+    ctx.fillText(text05, startX, y + 5);
+
+    // ── Subtitle ───────────────────────
+    ctx.textAlign = "center";
+    ctx.font = "30px Open Sans";
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.fillText("Presents", CERT_WIDTH / 2, 240);
+
+    ctx.font = "bold 50px altron, Arial Black";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("CERTIFICATE OF APPRECIATION", CERT_WIDTH / 2, 320);
+
+    ctx.font = "bold 32px Open Sans";
+    ctx.fillText("TO", CERT_WIDTH / 2, 370);
+
+    // ── Name ───────────────────────────
+    const nameFontSize = getFitFontSize(ctx, data.participantName, 900, 64, 30);
+
+    ctx.font = `bold ${nameFontSize}px Instrument Sans`;
+    ctx.fillStyle = "#ffffff";
+    ctx.shadowColor = "#696969";
+    ctx.shadowBlur = 20;
+
+    ctx.fillText(data.participantName, CERT_WIDTH / 2, 460);
+
+    ctx.shadowBlur = 0;
+
+    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+    ctx.lineWidth = 2;
+
+    ctx.beginPath();
+    ctx.moveTo(180, 480);
+    ctx.lineTo(CERT_WIDTH - 180, 480);
+    ctx.stroke();
+
+    // ── Body ───────────────────────────
+    ctx.textAlign = "left";
+    ctx.font = "18px Instrument Sans";
+    ctx.fillStyle = "rgba(255,255,255,0.9)";
+
+    const bodyX = CERT_WIDTH / 2 - 450;
+    const bodyY = 520;
+
+    const prefix = "Of ";
+    const suffix = " for their valuable support, participation, and";
+
+    const end = " contribution to the successful conduct of HackInverse 0.5.";
+
+    ctx.font = "22px Instrument Sans";
+    ctx.fillText(prefix, bodyX, bodyY);
+
+    const prefixW = ctx.measureText(prefix).width;
+
+    ctx.font = "bold 30px Open Sans";
+    ctx.fillText(data.teamName, bodyX + 100 + prefixW, bodyY);
+
+    const teamW = ctx.measureText(data.teamName).width;
+
+    ctx.font = "22px Instrument Sans";
+
+    ctx.beginPath();
+    ctx.moveTo(bodyX + prefixW, bodyY + 5);
+    ctx.lineTo(bodyX + prefixW + teamW + 200, bodyY + 5);
+    ctx.stroke();
+
+    ctx.fillText(suffix, bodyX + 200 + prefixW + teamW, bodyY);
+
+    ctx.textAlign = "center";
+    ctx.fillText(end, CERT_WIDTH / 2, bodyY + 35);
+
+    // paragraph
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+
+    const paraY = 590;
+
+    ctx.fillText(
+        "Your institution’s encouragement of innovation, technology, and student excellence played a",
+        CERT_WIDTH / 2,
+        paraY,
+    );
+    ctx.fillText(
+        "significant role in fostering a competitive and inspiring environment throughout the hackathon.",
+        CERT_WIDTH / 2,
+        paraY + 30,
+    );
+    ctx.fillText(
+        "We sincerely appreciate your continued commitment to empowering young innovators and",
+        CERT_WIDTH / 2,
+        paraY + 60,
+    );
+    ctx.fillText(
+        "promoting technological advancement.",
+        CERT_WIDTH / 2,
+        paraY + 90,
+    );
+
+    // ── Signatures ─────────────────────
+    const sigY = 890;
+    const leftX = 330;
+    const rightX = 1070;
+
+    ctx.filter = "brightness(0) invert(1)";
+
+    if (abhirupImg) {
+        ctx.drawImage(abhirupImg, leftX - 80, sigY - 120, 160, 100);
+    }
+
+    if (rupshaImg) {
+        ctx.drawImage(rupshaImg, rightX - 80, sigY - 120, 160, 100);
+    }
+
+    ctx.filter = "none";
+
+    ctx.strokeStyle = "rgba(255,255,255,0.6)";
+
+    ctx.beginPath();
+    ctx.moveTo(leftX - 140, sigY);
+    ctx.lineTo(leftX + 140, sigY);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(rightX - 140, sigY);
+    ctx.lineTo(rightX + 140, sigY);
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+
+    ctx.font = "15px Arial";
+    ctx.fillText("Abhirup Datta Khan", leftX, sigY + 25);
+    ctx.font = "bold 15px Arial";
+    ctx.fillText("Head Organizer", leftX, sigY + 45);
+
+    ctx.font = "15px Arial";
+    ctx.fillText("Rupsha Das", rightX, sigY + 25);
+    ctx.font = "bold 15px Arial";
+    ctx.fillText("Co-Organizer", rightX, sigY + 45);
+
+    // ── Certificate ID ────────────────
+    const certId = generateCertId(data.participantName, data.teamName);
+
+    ctx.font = "11px Arial";
+    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.fillText(`Certificate ID: ${certId}`, CERT_WIDTH / 2, CERT_HEIGHT - 40);
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Helpers ─────────────────────────
 
 function loadImage(src: string): Promise<HTMLImageElement> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload  = () => resolve(img);
-    img.onerror = () => reject(new Error(`Failed to load: ${src}`));
-    img.src = src;
-  });
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+    });
 }
 
-/**
- * Renders the signature image onto an off-screen canvas, converting the
- * black ink to white (transparent background) so it reads on a dark cert.
- */
-function processSignatureForDark(
-  img: HTMLImageElement,
-  w: number,
-  h: number
-): HTMLCanvasElement {
-  const off = document.createElement("canvas");
-  off.width  = w;
-  off.height = h;
-  const offCtx = off.getContext("2d")!;
-  offCtx.drawImage(img, 0, 0, w, h);
-
-  try {
-    const imageData = offCtx.getImageData(0, 0, w, h);
-    const d = imageData.data;
-    for (let i = 0; i < d.length; i += 4) {
-      const brightness = (d[i] + d[i + 1] + d[i + 2]) / 3;
-      if (brightness > 190) {
-        d[i + 3] = 0; // near-white background → transparent
-      } else {
-        // dark ink → white
-        const strength = 1 - brightness / 190;
-        d[i]     = 255;
-        d[i + 1] = 255;
-        d[i + 2] = 255;
-        d[i + 3] = Math.round(strength * 230);
-      }
-    }
-    offCtx.putImageData(imageData, 0, 0);
-  } catch {
-    // CORS fallback: invert colours (white bg→black blends into dark cert)
-    offCtx.clearRect(0, 0, w, h);
-    offCtx.filter = "invert(1)";
-    offCtx.drawImage(img, 0, 0, w, h);
-    offCtx.filter = "none";
-  }
-
-  return off;
+async function loadFont(name: string, url: string) {
+    const font = new FontFace(name, `url(${url})`);
+    await font.load();
+    document.fonts.add(font);
 }
 
-/** Draws a subtle circuit-board trace pattern as a dark watermark. */
-function drawCircuitBoard(ctx: CanvasRenderingContext2D): void {
-  ctx.save();
-  const a = 0.12; // alpha
-  ctx.strokeStyle = `rgba(180,20,20,${a})`;
-  ctx.fillStyle   = `rgba(180,20,20,${a})`;
-  ctx.lineWidth   = 1.2;
-
-  const ox       = CERT_WIDTH  * 0.37;
-  const oy       = CERT_HEIGHT * 0.22;
-  const cellSize = 48;
-  const cols     = 20;
-  const rows     = 17;
-
-  // Deterministic pseudo-random (LCG)
-  let seed = 7919;
-  const rand = () => {
-    seed = ((seed * 1664525) + 1013904223) & 0x7fffffff;
-    return seed / 0x7fffffff;
-  };
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const x = ox + c * cellSize;
-      const y = oy + r * cellSize;
-
-      if (rand() > 0.42 && c < cols - 1) {
-        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + cellSize, y); ctx.stroke();
-      }
-      if (rand() > 0.42 && r < rows - 1) {
-        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + cellSize); ctx.stroke();
-      }
-      if (rand() > 0.62) {
-        ctx.beginPath(); ctx.arc(x, y, 2.5, 0, Math.PI * 2); ctx.fill();
-      }
-    }
-  }
-
-  // IC chip outlines with pins
-  ctx.lineWidth = 1.5;
-  const ics = [
-    { x: ox + 45,  y: oy + 65,  w: 88, h: 48  },
-    { x: ox + 260, y: oy + 220, w: 72, h: 100 },
-    { x: ox + 490, y: oy + 145, w: 80, h: 58  },
-    { x: ox + 385, y: oy + 400, w: 96, h: 42  },
-    { x: ox + 655, y: oy + 305, w: 64, h: 80  },
-  ];
-  for (const { x, y, w, h } of ics) {
-    ctx.strokeRect(x, y, w, h);
-    const topPins = Math.floor(w / 18);
-    for (let p = 0; p < topPins; p++) {
-      const px = x + 9 + p * 18;
-      ctx.beginPath(); ctx.moveTo(px, y);     ctx.lineTo(px, y - 9);     ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(px, y + h); ctx.lineTo(px, y + h + 9); ctx.stroke();
-    }
-  }
-
-  ctx.restore();
-}
-
-/** Draws an approximation of the Magistics "M" logo box. */
-function drawMagisticsLogo(ctx: CanvasRenderingContext2D, x: number, y: number): void {
-  const lw = 100;
-  const lh = 78;
-
-  // Background box
-  ctx.fillStyle = "#111111";
-  ctx.fillRect(x, y, lw, lh);
-  ctx.strokeStyle = "rgba(255,255,255,0.3)";
-  ctx.lineWidth = 1;
-  ctx.strokeRect(x, y, lw, lh);
-
-  // M geometry
-  const ml    = x + 9;
-  const mr    = x + lw - 9;
-  const mt    = y + 10;
-  const mb    = y + lh - 10;
-  const bw    = 11; // bar width
-  const cx    = x + lw / 2;
-  const peakY = mt + (mb - mt) * 0.44;
-
-  ctx.fillStyle = "#ffffff";
-
-  // Left vertical bar
-  ctx.fillRect(ml, mt, bw, mb - mt);
-  // Right vertical bar
-  ctx.fillRect(mr - bw, mt, bw, mb - mt);
-
-  // Left diagonal arm → centre peak
-  ctx.beginPath();
-  ctx.moveTo(ml, mt);
-  ctx.lineTo(ml + bw, mt);
-  ctx.lineTo(cx - 1, peakY);
-  ctx.lineTo(cx - 2, peakY);
-  ctx.closePath();
-  ctx.fill();
-
-  // Right diagonal arm → centre peak
-  ctx.beginPath();
-  ctx.moveTo(mr, mt);
-  ctx.lineTo(mr - bw, mt);
-  ctx.lineTo(cx + 1, peakY);
-  ctx.lineTo(cx + 2, peakY);
-  ctx.closePath();
-  ctx.fill();
-
-  // Diagonal stripe details on left bar
-  ctx.strokeStyle = "#111111";
-  ctx.lineWidth = 2.5;
-  ctx.beginPath(); ctx.moveTo(ml, mt + 13); ctx.lineTo(ml + bw, mt + 6);  ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(ml, mt + 24); ctx.lineTo(ml + bw, mt + 17); ctx.stroke();
-
-  // Label
-  ctx.fillStyle = "#bbbbbb";
-  ctx.font = "bold 9px Arial, sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("MAGISTICS", x + lw / 2, y + lh + 15);
-}
-
-/** Returns the largest font size (Georgia) that fits `text` inside `maxWidth`. */
 function getFitFontSize(
-  ctx: CanvasRenderingContext2D,
-  text: string,
-  maxWidth: number,
-  maxSize: number,
-  minSize: number
-): number {
-  let size = maxSize;
-  while (size >= minSize) {
-    ctx.font = `${size}px Georgia, 'Times New Roman', serif`;
-    if (ctx.measureText(text).width <= maxWidth) return size;
-    size -= 2;
-  }
-  return minSize;
+    ctx: CanvasRenderingContext2D,
+    text: string,
+    maxWidth: number,
+    maxSize: number,
+    minSize: number,
+) {
+    let size = maxSize;
+    while (size >= minSize) {
+        ctx.font = `${size}px Georgia`;
+        if (ctx.measureText(text).width <= maxWidth) return size;
+        size -= 2;
+    }
+    return minSize;
 }
 
-/** Deterministic short certificate ID. */
-function generateCertId(participantName: string, teamName: string): string {
-  const raw = `${participantName}::${teamName}::HackInverse2026`;
-  let hash = 0;
-  for (let i = 0; i < raw.length; i++) {
-    hash = (hash << 5) - hash + raw.charCodeAt(i);
-    hash |= 0;
-  }
-  const hex = Math.abs(hash).toString(16).toUpperCase().padStart(8, "0");
-  return `HI2026-${hex}`;
+function generateCertId(name: string, team: string) {
+    return (
+        "HI2026-" +
+        Math.abs(
+            [...(name + team)].reduce((acc, c) => acc + c.charCodeAt(0), 0),
+        )
+            .toString(16)
+            .toUpperCase()
+    );
+}
+
+function drawCircuitBoard(ctx: CanvasRenderingContext2D) {
+    ctx.strokeStyle = "rgba(255,0,0,0.08)";
+    ctx.lineWidth = 1;
+
+    for (let i = 0; i < 20; i++) {
+        ctx.beginPath();
+        ctx.moveTo(400 + i * 50, 200);
+        ctx.lineTo(400 + i * 50, 800);
+        ctx.stroke();
+    }
+}
+
+async function drawMagisticsLogo(
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+) {
+    const logoImg = await loadImage("/magistics_logo.svg");
+    ctx.drawImage(logoImg, x, y, 150, 100);
 }
