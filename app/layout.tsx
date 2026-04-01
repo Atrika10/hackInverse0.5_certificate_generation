@@ -1,27 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Open_Sans, Instrument_Sans } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-});
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "HackInverse Certificate Portal",
@@ -34,11 +13,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} ${instrumentSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-[#07070f] text-white">
+    <html lang="en" style={{ height: "100%" }}>
+      <body
+        style={{
+          minHeight: "100%",
+          display: "flex",
+          flexDirection: "column",
+          background: "#008080",
+          color: "#000",
+          fontFamily: "'Tahoma', 'MS Sans Serif', Arial, sans-serif",
+          fontSize: "11px",
+          margin: 0,
+          padding: 0,
+        }}
+      >
         <Navbar />
         {children}
       </body>

@@ -1,24 +1,138 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07070f;
-  --foreground: #f0f0f5;
+  /* Windows 2000 color palette */
+  --background: #008080; /* Classic teal desktop */
+  --foreground: #000000;
+  --win-gray: #d4d0c8;
+  --win-gray-dark: #a0998c;
+  --win-gray-darker: #808080;
+  --win-white: #ffffff;
+  --win-titlebar: #000080; /* Classic navy titlebar */
+  --win-titlebar-text: #ffffff;
+  --win-border-light: #ffffff;
+  --win-border-dark: #808080;
+  --win-border-darker: #404040;
+  --win-highlight: #0a246a;
+  --win-highlight-text: #ffffff;
+  --win-btn-face: #d4d0c8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overscroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
 }
 
-/* Smooth scrolling */
-html {
-  overscroll-behavior: smooth;
+/* Win2000 raised button 3D border */
+.win-btn {
+  background: var(--win-gray);
+  color: var(--foreground);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-border-dark);
+  border-bottom: 2px solid var(--win-border-dark);
+  font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
+  padding: 3px 12px;
+  cursor: pointer;
+  outline: 1px solid var(--win-border-darker);
+  outline-offset: -1px;
+  user-select: none;
+}
+
+.win-btn:active {
+  border-top: 2px solid var(--win-border-dark);
+  border-left: 2px solid var(--win-border-dark);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+}
+
+.win-btn:disabled {
+  color: var(--win-gray-darker);
+  cursor: default;
+}
+
+/* Win2000 sunken inset panel */
+.win-inset {
+  border-top: 2px solid var(--win-border-dark);
+  border-left: 2px solid var(--win-border-dark);
+  border-right: 2px solid var(--win-white);
+  border-bottom: 2px solid var(--win-white);
+  background: var(--win-white);
+}
+
+/* Win2000 raised panel */
+.win-raised {
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-border-dark);
+  border-bottom: 2px solid var(--win-border-dark);
+  background: var(--win-gray);
+}
+
+/* Window chrome */
+.win-window {
+  background: var(--win-gray);
+  border-top: 2px solid var(--win-white);
+  border-left: 2px solid var(--win-white);
+  border-right: 2px solid var(--win-border-darker);
+  border-bottom: 2px solid var(--win-border-darker);
+  outline: 1px solid var(--win-border-dark);
+}
+
+/* Titlebar gradient */
+.win-titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.win-titlebar-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--win-gray);
+  border-top: 1px solid var(--win-white);
+  border-left: 1px solid var(--win-white);
+  border-right: 1px solid var(--win-border-darker);
+  border-bottom: 1px solid var(--win-border-darker);
+  font-size: 9px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Status bar */
+.win-statusbar {
+  background: var(--win-gray);
+  border-top: 1px solid var(--win-border-dark);
+  font-size: 11px;
+  padding: 2px 6px;
 }
