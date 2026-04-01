@@ -103,7 +103,7 @@ export default function CertificateCanvas({ data }: Props) {
         <button
           onClick={downloadPNG}
           disabled={!isReady || isDownloadingPng}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+          className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
           bg-linear-to-r from-red-600 to-red-500
           hover:from-red-500 hover:to-red-400
           disabled:opacity-50 disabled:cursor-not-allowed
@@ -116,7 +116,7 @@ export default function CertificateCanvas({ data }: Props) {
         <button
           onClick={downloadPDF}
           disabled={!isReady || isDownloadingPdf}
-          className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+          className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
           bg-linear-to-r from-cyan-600 to-cyan-500
           hover:from-cyan-500 hover:to-cyan-400
           disabled:opacity-50 disabled:cursor-not-allowed

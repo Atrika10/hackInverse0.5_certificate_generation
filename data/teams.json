@@ -2,7 +2,7 @@
   {
     "id": "team-001",
     "name": "Vibe to hai",
-    "rank": 1,
+    "rank": null,
     "members": [
       "Sanket Kurve"
     ]
@@ -10,7 +10,7 @@
   {
     "id": "team-002",
     "name": "PIKACHU",
-    "rank": 2,
+    "rank": null,
     "members": [
       "Sk Masum Ali",
       "Saheli Das"
@@ -19,7 +19,7 @@
   {
     "id": "team-003",
     "name": "suparnamaity1985iii",
-    "rank": 3,
+    "rank": null,
     "members": [
       "Saikat Das",
       "Soumyadeep Dey",
@@ -30,7 +30,7 @@
   {
     "id": "team-004",
     "name": "Team Chocolate Coffee",
-    "rank": 4,
+    "rank": null,
     "members": [
       "Sushovan Ghosh",
       "Archishman Sarkar",
@@ -41,7 +41,7 @@
   {
     "id": "team-005",
     "name": "TeesMaarKhaCoders",
-    "rank": 5,
+    "rank": null,
     "members": [
       "Satyam Mondal",
       "Subhojyoti Maity",
@@ -52,7 +52,7 @@
   {
     "id": "team-006",
     "name": "DevWizards",
-    "rank": 6,
+    "rank": null,
     "members": [
       "Bishal Saha"
     ]
@@ -60,7 +60,7 @@
   {
     "id": "team-007",
     "name": "Syntax Savants",
-    "rank": 7,
+    "rank": null,
     "members": [
       "ANKUR KONAR",
       "Adrija Banerjee",
@@ -71,7 +71,7 @@
   {
     "id": "team-008",
     "name": "Code Catalysts",
-    "rank": 8,
+    "rank": null,
     "members": [
       "Dipayan Majumdar",
       "Sohan Das"
@@ -80,7 +80,7 @@
   {
     "id": "team-009",
     "name": "KikTro Labs",
-    "rank": 9,
+    "rank": null,
     "members": [
       "Krishnendu Halder"
     ]
@@ -88,7 +88,7 @@
   {
     "id": "team-010",
     "name": "PlanGenius",
-    "rank": 10,
+    "rank": null,
     "members": [
       "Biraj Acherjee"
     ]

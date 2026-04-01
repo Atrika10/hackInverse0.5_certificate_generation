@@ -165,13 +165,11 @@ export async function drawCertificate(
   ctx.font = "18px Instrument Sans";
   ctx.fillStyle = "rgba(255,255,255,0.9)";
 
-  const bodyX = CERT_WIDTH / 2 - 450;
+  const bodyX = CERT_WIDTH / 2 - 500;
   const bodyY = 520;
 
   const prefix = "Of ";
-  const suffix = " for their valuable support, participation, and";
-
-  const end = " contribution to the successful conduct of HackInverse 0.5.";
+  const suffix = " has successfully participated in HackInverse 0.5";
 
   ctx.font = "22px Instrument Sans";
   ctx.fillText(prefix, bodyX, bodyY);
@@ -183,7 +181,7 @@ export async function drawCertificate(
 
   const teamW = ctx.measureText(data.teamName).width;
 
-  ctx.font = "22px Instrument Sans";
+  ctx.font = "25px Instrument Sans";
 
   ctx.beginPath();
   ctx.moveTo(bodyX + prefixW, bodyY + 5);
@@ -193,32 +191,29 @@ export async function drawCertificate(
   ctx.fillText(suffix, bodyX + 200 + prefixW + teamW, bodyY);
 
   ctx.textAlign = "center";
-  ctx.fillText(end, CERT_WIDTH / 2, bodyY + 35);
-
-  // paragraph
   ctx.fillStyle = "rgba(255,255,255,0.8)";
 
-  const paraY = 590;
+  const paraY = 570;
 
   ctx.fillText(
-    "Your institution’s encouragement of innovation, technology, and student excellence played a",
+    "bringing together innovators, developers, and problem-solvers to build impactful technology",
     CERT_WIDTH / 2,
     paraY,
   );
   ctx.fillText(
-    "significant role in fostering a competitive and inspiring environment throughout the hackathon.",
+    "solutions. Your enthusiasm, creativity, and commitment to innovation are truly appreciated. We",
     CERT_WIDTH / 2,
-    paraY + 30,
+    paraY + 40,
   );
   ctx.fillText(
-    "We sincerely appreciate your continued commitment to empowering young innovators and",
+    "commend your dedication and active involvement throughout the event.",
     CERT_WIDTH / 2,
-    paraY + 60,
+    paraY + 80,
   );
   ctx.fillText(
-    "promoting technological advancement.",
+    "We wish you continued success in your future endeavors.",
     CERT_WIDTH / 2,
-    paraY + 90,
+    paraY + 120,
   );
 
   // ── Signatures ─────────────────────
