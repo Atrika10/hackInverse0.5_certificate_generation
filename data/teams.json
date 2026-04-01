@@ -1,50 +1,1264 @@
 [
   {
     "id": "team-001",
-    "name": "ByteBlasters",
+    "name": "Vibe to hai",
     "rank": 1,
-    "members": ["Priya Sharma", "Rahul Verma", "Ankit Gupta"]
+    "members": [
+      "Sanket Kurve"
+    ]
   },
   {
     "id": "team-002",
-    "name": "NeuralNinjas",
+    "name": "PIKACHU",
     "rank": 2,
-    "members": ["Sneha Patel", "Arjun Mehta", "Divya Singh"]
+    "members": [
+      "Sk Masum Ali",
+      "Saheli Das"
+    ]
   },
   {
     "id": "team-003",
-    "name": "CodeCrusaders",
+    "name": "suparnamaity1985iii",
     "rank": 3,
-    "members": ["Rohan Das", "Isha Kapoor"]
+    "members": [
+      "Saikat Das",
+      "Soumyadeep Dey",
+      "Subarna Maity",
+      "Sourish Panda"
+    ]
   },
   {
     "id": "team-004",
-    "name": "QuantumHackers",
-    "rank": null,
-    "members": ["Atrika Show", "Vivek Nair", "Pooja Yadav", "Kiran Bose"]
+    "name": "Team Chocolate Coffee",
+    "rank": 4,
+    "members": [
+      "Sushovan Ghosh",
+      "Archishman Sarkar",
+      "Devargho Chakraborty",
+      "Suparna Panda"
+    ]
   },
   {
     "id": "team-005",
-    "name": "CipherSquad",
-    "rank": null,
-    "members": ["Manish Tiwari", "Riya Joshi", "Suresh Kumar"]
+    "name": "TeesMaarKhaCoders",
+    "rank": 5,
+    "members": [
+      "Satyam Mondal",
+      "Subhojyoti Maity",
+      "CHANDAN SAHA",
+      "Aritra Giri"
+    ]
   },
   {
     "id": "team-006",
-    "name": "AlgoArmy",
-    "rank": null,
-    "members": ["Deepak Pandey", "Neha Srivastava", "Amit Chauhan", "Farhan Sheikh"]
+    "name": "DevWizards",
+    "rank": 6,
+    "members": [
+      "Bishal Saha"
+    ]
   },
   {
     "id": "team-007",
-    "name": "PixelPirates",
-    "rank": null,
-    "members": ["Tanvi Mishra", "Saurabh Rao", "Lakshmi Iyer"]
+    "name": "Syntax Savants",
+    "rank": 7,
+    "members": [
+      "ANKUR KONAR",
+      "Adrija Banerjee",
+      "Abhirup Das",
+      "Ankita Singh"
+    ]
   },
   {
     "id": "team-008",
-    "name": "DataDragons",
+    "name": "Code Catalysts",
+    "rank": 8,
+    "members": [
+      "Dipayan Majumdar",
+      "Sohan Das"
+    ]
+  },
+  {
+    "id": "team-009",
+    "name": "KikTro Labs",
+    "rank": 9,
+    "members": [
+      "Krishnendu Halder"
+    ]
+  },
+  {
+    "id": "team-010",
+    "name": "PlanGenius",
+    "rank": 10,
+    "members": [
+      "Biraj Acherjee"
+    ]
+  },
+  {
+    "id": "team-011",
+    "name": "Astra",
     "rank": null,
-    "members": ["Nikhil Bansal", "Ananya Roy", "Preeti Dubey"]
+    "members": [
+      "Meghali Dutta"
+    ]
+  },
+  {
+    "id": "team-012",
+    "name": "2006priyanshughosh",
+    "rank": null,
+    "members": [
+      "PRIYANSHU GHOSH"
+    ]
+  },
+  {
+    "id": "team-013",
+    "name": "abhirup",
+    "rank": null,
+    "members": [
+      "Abhirup Datta Khan"
+    ]
+  },
+  {
+    "id": "team-014",
+    "name": "Neuronauts",
+    "rank": null,
+    "members": [
+      "Kartavya Jaiswal",
+      "Abhimaan Jaiswal"
+    ]
+  },
+  {
+    "id": "team-015",
+    "name": "subhajeetgorai06",
+    "rank": null,
+    "members": [
+      "Subhajeet Gorai"
+    ]
+  },
+  {
+    "id": "team-016",
+    "name": "ddmpersonalworkspace",
+    "rank": null,
+    "members": [
+      "Sylvia Barick",
+      "Debojyoti De Majumder"
+    ]
+  },
+  {
+    "id": "team-017",
+    "name": "Sentinels",
+    "rank": null,
+    "members": [
+      "Asmit Sen",
+      "Somnath Sarkar",
+      "Abhishek Choudhary"
+    ]
+  },
+  {
+    "id": "team-018",
+    "name": "MechaByte",
+    "rank": null,
+    "members": [
+      "Debanjoy Das",
+      "Meghna Dutta",
+      "Dibbyajit Kundu",
+      "Saral Sil"
+    ]
+  },
+  {
+    "id": "team-019",
+    "name": "HackStars",
+    "rank": null,
+    "members": [
+      "Souvik Ghosh",
+      "Rajib Singha Roy",
+      "MD Ali Imran Laskar",
+      "Argha Ghosh"
+    ]
+  },
+  {
+    "id": "team-020",
+    "name": "nayansaraff3739",
+    "rank": null,
+    "members": [
+      "Nayan Saraff"
+    ]
+  },
+  {
+    "id": "team-021",
+    "name": "sinhapiyush964",
+    "rank": null,
+    "members": [
+      "Piyush Sinha"
+    ]
+  },
+  {
+    "id": "team-022",
+    "name": "Elite Techie",
+    "rank": null,
+    "members": [
+      "Poorvi Malviya"
+    ]
+  },
+  {
+    "id": "team-023",
+    "name": "pallavi051712",
+    "rank": null,
+    "members": [
+      "Pallavi M"
+    ]
+  },
+  {
+    "id": "team-024",
+    "name": "COSMOHack",
+    "rank": null,
+    "members": [
+      "RAJDEEP DAS",
+      "Abhilash Palit"
+    ]
+  },
+  {
+    "id": "team-025",
+    "name": "paulsneha3692",
+    "rank": null,
+    "members": [
+      "Sneha Paul"
+    ]
+  },
+  {
+    "id": "team-026",
+    "name": "THINKRON",
+    "rank": null,
+    "members": [
+      "Ramij Abbas abbas",
+      "Anshuman Mondal",
+      "Sneha Paul"
+    ]
+  },
+  {
+    "id": "team-027",
+    "name": "BinaryBytes",
+    "rank": null,
+    "members": [
+      "Revada Jay chandra"
+    ]
+  },
+  {
+    "id": "team-028",
+    "name": "Code Captcha",
+    "rank": null,
+    "members": [
+      "ARINDAM MANDAL",
+      "Joyjit Das",
+      "Sayoni Samanta",
+      "Sreejib Nandy"
+    ]
+  },
+  {
+    "id": "team-029",
+    "name": "Rogue",
+    "rank": null,
+    "members": [
+      "Ayush Kumar"
+    ]
+  },
+  {
+    "id": "team-030",
+    "name": "Chase Infinity",
+    "rank": null,
+    "members": [
+      "ARNOV PAUL",
+      "Utso Biswas",
+      "Sourish Bera"
+    ]
+  },
+  {
+    "id": "team-031",
+    "name": "Warrior \u00f0\u0178\u00aa\u2013",
+    "rank": null,
+    "members": [
+      "Sayan Jana"
+    ]
+  },
+  {
+    "id": "team-032",
+    "name": "Future experte",
+    "rank": null,
+    "members": [
+      "Debopriya Bhattacharjee"
+    ]
+  },
+  {
+    "id": "team-033",
+    "name": "HackerX",
+    "rank": null,
+    "members": [
+      "Tripam Biswas"
+    ]
+  },
+  {
+    "id": "team-034",
+    "name": "souparnamandal6",
+    "rank": null,
+    "members": [
+      "Souparna Mandal"
+    ]
+  },
+  {
+    "id": "team-035",
+    "name": "Ingenico",
+    "rank": null,
+    "members": [
+      "Arpan Kumar De"
+    ]
+  },
+  {
+    "id": "team-036",
+    "name": "singhabhishek0459",
+    "rank": null,
+    "members": [
+      "Abhishek Singh"
+    ]
+  },
+  {
+    "id": "team-037",
+    "name": "Innovenger",
+    "rank": null,
+    "members": [
+      "Sristi Paul"
+    ]
+  },
+  {
+    "id": "team-038",
+    "name": "AstraX",
+    "rank": null,
+    "members": [
+      "Subhranil Mondal",
+      "Subhajit Jati",
+      "Soumadeep Shee"
+    ]
+  },
+  {
+    "id": "team-039",
+    "name": "ethicalhack017",
+    "rank": null,
+    "members": [
+      "Vision"
+    ]
+  },
+  {
+    "id": "team-040",
+    "name": "ak0978096",
+    "rank": null,
+    "members": [
+      "ABHINIT KUMAR"
+    ]
+  },
+  {
+    "id": "team-041",
+    "name": "Devil Coders",
+    "rank": null,
+    "members": [
+      "Bikramjit Pakhira",
+      "Sneha Roy"
+    ]
+  },
+  {
+    "id": "team-042",
+    "name": "SHE CODES",
+    "rank": null,
+    "members": [
+      "Sumedha Chowdhury"
+    ]
+  },
+  {
+    "id": "team-043",
+    "name": "ahamed.ajaj01",
+    "rank": null,
+    "members": [
+      "Ekarna Das",
+      "Samik Pramanik",
+      "Gitika Kasyap",
+      "Ajaj Ahamed"
+    ]
+  },
+  {
+    "id": "team-044",
+    "name": "singharpit.asb",
+    "rank": null,
+    "members": [
+      "Arpit Baghel"
+    ]
+  },
+  {
+    "id": "team-045",
+    "name": "samyamay2005",
+    "rank": null,
+    "members": [
+      "Samyamay Bhattacharjee"
+    ]
+  },
+  {
+    "id": "team-046",
+    "name": "purbasadawn21",
+    "rank": null,
+    "members": [
+      "P D",
+      "PRATIK JAISWAL",
+      "KOYEL CHOUDHURI"
+    ]
+  },
+  {
+    "id": "team-047",
+    "name": "MarathaMinds",
+    "rank": null,
+    "members": [
+      "Laxman Gaidhankar",
+      "Sanket Rajkumar Gudade"
+    ]
+  },
+  {
+    "id": "team-048",
+    "name": "MECHA TRIO",
+    "rank": null,
+    "members": [
+      "Sandip Dhaki",
+      "Swastik Mondal",
+      "Ankit Bail"
+    ]
+  },
+  {
+    "id": "team-049",
+    "name": "LONE WOLF",
+    "rank": null,
+    "members": [
+      "APURBA PAL",
+      "Soudip Bug",
+      "Upal Panja"
+    ]
+  },
+  {
+    "id": "team-050",
+    "name": "deysrinjoyee28",
+    "rank": null,
+    "members": [
+      "Srinjoyee Dey",
+      "Raghaw Shukla"
+    ]
+  },
+  {
+    "id": "team-051",
+    "name": "shravanidhuri2006",
+    "rank": null,
+    "members": [
+      "Heenal Kacha",
+      "Shravani Mahendra Dhuri"
+    ]
+  },
+  {
+    "id": "team-052",
+    "name": "AlgoAstra",
+    "rank": null,
+    "members": [
+      "Rimjhim Mahata",
+      "Altamash Aiash"
+    ]
+  },
+  {
+    "id": "team-053",
+    "name": "Binary Nexus",
+    "rank": null,
+    "members": [
+      "Sinjini Ghosal"
+    ]
+  },
+  {
+    "id": "team-054",
+    "name": "Bit Lords",
+    "rank": null,
+    "members": [
+      "Rahul Das",
+      "Subhankar Pal",
+      "Pratik Roy",
+      "Priyam Mondal"
+    ]
+  },
+  {
+    "id": "team-055",
+    "name": "rupsadutta16",
+    "rank": null,
+    "members": [
+      "Rupsa Dutta"
+    ]
+  },
+  {
+    "id": "team-056",
+    "name": "ankanachakraborty2002",
+    "rank": null,
+    "members": [
+      "Ankana Chakraborty"
+    ]
+  },
+  {
+    "id": "team-057",
+    "name": "sahoorishita672",
+    "rank": null,
+    "members": [
+      "Rishita Sahoo"
+    ]
+  },
+  {
+    "id": "team-058",
+    "name": "sweetmemory072",
+    "rank": null,
+    "members": [
+      "Rudra Samanta"
+    ]
+  },
+  {
+    "id": "team-059",
+    "name": "prem.kumarsingh.25",
+    "rank": null,
+    "members": [
+      "Diptayan Adhikary",
+      "Debjit Koner",
+      "PREM KUMAR SINGH"
+    ]
+  },
+  {
+    "id": "team-060",
+    "name": "iamsreoshi19",
+    "rank": null,
+    "members": [
+      "Sreoshi Chakraborty"
+    ]
+  },
+  {
+    "id": "team-061",
+    "name": "Falcon Fury",
+    "rank": null,
+    "members": [
+      "PRANEET GHOSH",
+      "Rick Mondal",
+      "Rakesh Das",
+      "SUBRATA KUNDU"
+    ]
+  },
+  {
+    "id": "team-062",
+    "name": "swapnendusen",
+    "rank": null,
+    "members": [
+      "Subrata Malik",
+      "Anik Sarkar",
+      "Swapnendu Sen",
+      "Puspargha Dhank"
+    ]
+  },
+  {
+    "id": "team-063",
+    "name": "mosarofhossain1786",
+    "rank": null,
+    "members": [
+      "Mehedi Hasan"
+    ]
+  },
+  {
+    "id": "team-064",
+    "name": "abhishekchakraborty187",
+    "rank": null,
+    "members": [
+      "Abhishek Chakraborty chakraborty"
+    ]
+  },
+  {
+    "id": "team-065",
+    "name": "mailchittadeep",
+    "rank": null,
+    "members": [
+      "Chittadeep Biswas"
+    ]
+  },
+  {
+    "id": "team-066",
+    "name": "CODE CUBED",
+    "rank": null,
+    "members": [
+      "Kingshuk Adhikari",
+      "Jit Ghosh",
+      "Debasrita Mukherjee"
+    ]
+  },
+  {
+    "id": "team-067",
+    "name": "MixTech",
+    "rank": null,
+    "members": [
+      "Chandan Ghosh",
+      "Gourav Ghosh"
+    ]
+  },
+  {
+    "id": "team-068",
+    "name": "Team OXOMS",
+    "rank": null,
+    "members": [
+      "Nilarpan Jana",
+      "Moniratna Roy",
+      "Samrat Natta",
+      "Soumadeep Dey"
+    ]
+  },
+  {
+    "id": "team-069",
+    "name": "skranju716",
+    "rank": null,
+    "members": [
+      "Sk Ramiz Ali"
+    ]
+  },
+  {
+    "id": "team-070",
+    "name": "Out of Bounds",
+    "rank": null,
+    "members": [
+      "Dipanjan Halder",
+      "Sudip Madhu",
+      "ADRIJA SIL",
+      "Asmit Dey"
+    ]
+  },
+  {
+    "id": "team-071",
+    "name": "rajnishu229",
+    "rank": null,
+    "members": [
+      "Nishu Kumar",
+      "Uday raj Gupta",
+      "Piyush Kumar",
+      "Golu kumar Tiwari"
+    ]
+  },
+  {
+    "id": "team-072",
+    "name": "soumabrataghosh57",
+    "rank": null,
+    "members": [
+      "Soumabrata Ghosh"
+    ]
+  },
+  {
+    "id": "team-073",
+    "name": "BitStrom",
+    "rank": null,
+    "members": [
+      "Aniket Das",
+      "Santanu Atta",
+      "Ayan Manna"
+    ]
+  },
+  {
+    "id": "team-074",
+    "name": "Sparkle",
+    "rank": null,
+    "members": [
+      "Mouli Biswas",
+      "Sayantan Biswas"
+    ]
+  },
+  {
+    "id": "team-075",
+    "name": "2016dragneel",
+    "rank": null,
+    "members": [
+      "Subhroneel Bala"
+    ]
+  },
+  {
+    "id": "team-076",
+    "name": "TwinTech",
+    "rank": null,
+    "members": [
+      "MONIKA YADAV",
+      "Syeda Ayesha"
+    ]
+  },
+  {
+    "id": "team-077",
+    "name": "silicon riders",
+    "rank": null,
+    "members": [
+      "Satakshi Patra",
+      "Sharmita chatterjee",
+      "Param Banerjee"
+    ]
+  },
+  {
+    "id": "team-078",
+    "name": "BINARY BUILDERS",
+    "rank": null,
+    "members": [
+      "Debanjan Das",
+      "CHANDRIMA SAHA"
+    ]
+  },
+  {
+    "id": "team-079",
+    "name": "sougatachongder8",
+    "rank": null,
+    "members": [
+      "Sougata Chongder"
+    ]
+  },
+  {
+    "id": "team-080",
+    "name": "Group Anonymous",
+    "rank": null,
+    "members": [
+      "PUSHKAR SHAH"
+    ]
+  },
+  {
+    "id": "team-081",
+    "name": "satrajit2006chakraborty",
+    "rank": null,
+    "members": [
+      "Yazdan Irfan",
+      "SATRAJIT CHAKRAORTY",
+      "Bidipt Biswas",
+      "Sourasis Thandar"
+    ]
+  },
+  {
+    "id": "team-082",
+    "name": "roy20114251",
+    "rank": null,
+    "members": [
+      "Tanya Roy"
+    ]
+  },
+  {
+    "id": "team-083",
+    "name": "patrasamrat38",
+    "rank": null,
+    "members": [
+      "Samrat Patra"
+    ]
+  },
+  {
+    "id": "team-084",
+    "name": "Error 404",
+    "rank": null,
+    "members": [
+      "Rajdeep Dey"
+    ]
+  },
+  {
+    "id": "team-085",
+    "name": "Benz",
+    "rank": null,
+    "members": [
+      "ANIMESH BERA",
+      "TOUFIK HASAN"
+    ]
+  },
+  {
+    "id": "team-086",
+    "name": "arka.mondal.25",
+    "rank": null,
+    "members": [
+      "ARKA Mondal"
+    ]
+  },
+  {
+    "id": "team-087",
+    "name": "The Avengers",
+    "rank": null,
+    "members": [
+      "Amit Pal",
+      "Suman Dey",
+      "Subhajit Shyamal",
+      "Rana De"
+    ]
+  },
+  {
+    "id": "team-088",
+    "name": "agniroybar",
+    "rank": null,
+    "members": [
+      "Agni Roybar",
+      "Akash Chakraborty"
+    ]
+  },
+  {
+    "id": "team-089",
+    "name": "akshitakeshavdec1",
+    "rank": null,
+    "members": [
+      "Abhijit Mridha",
+      "Akshita"
+    ]
+  },
+  {
+    "id": "team-090",
+    "name": "bbvv43374",
+    "rank": null,
+    "members": [
+      "Tuhin Sen"
+    ]
+  },
+  {
+    "id": "team-091",
+    "name": "ramkishormandalranga",
+    "rank": null,
+    "members": [
+      "RAMKISHOR MANDAL"
+    ]
+  },
+  {
+    "id": "team-092",
+    "name": "surya.saha.arcade25",
+    "rank": null,
+    "members": [
+      "Surya Saha"
+    ]
+  },
+  {
+    "id": "team-093",
+    "name": "Rupsashit",
+    "rank": null,
+    "members": [
+      "Rupsa Shit"
+    ]
+  },
+  {
+    "id": "team-094",
+    "name": "Quantum Coders",
+    "rank": null,
+    "members": [
+      "CHINMOY Das",
+      "Nakshatra Naskar"
+    ]
+  },
+  {
+    "id": "team-095",
+    "name": "Tech Titans",
+    "rank": null,
+    "members": [
+      "Pankaj Kumar Gupta",
+      "Soumyadeep Kolay",
+      "Aditya Dutta",
+      "Govind Raj Gupta"
+    ]
+  },
+  {
+    "id": "team-096",
+    "name": "Vashtaji",
+    "rank": null,
+    "members": [
+      "Jiya Patel",
+      "Shreyas"
+    ]
+  },
+  {
+    "id": "team-097",
+    "name": "Unicorn",
+    "rank": null,
+    "members": [
+      "Aritra Banerjee",
+      "SAGAR MAHATA",
+      "SOUMYAJIT BANIK",
+      "Sankhadip Mondal"
+    ]
+  },
+  {
+    "id": "team-098",
+    "name": "UNIT - 108",
+    "rank": null,
+    "members": [
+      "Mudit Khater"
+    ]
+  },
+  {
+    "id": "team-099",
+    "name": "ysultana145",
+    "rank": null,
+    "members": [
+      "Yasmin Sultana"
+    ]
+  },
+  {
+    "id": "team-100",
+    "name": "barshamishra33322",
+    "rank": null,
+    "members": [
+      "Shibam Mandal",
+      "Ujjwal Kumar",
+      "Barsha Mishra",
+      "Kritya Kumari"
+    ]
+  },
+  {
+    "id": "team-101",
+    "name": "yashskolambekar2015",
+    "rank": null,
+    "members": [
+      "Yash Kolambekar"
+    ]
+  },
+  {
+    "id": "team-102",
+    "name": "Vayu Devs",
+    "rank": null,
+    "members": [
+      "Het Salot",
+      "Soham Prajapati",
+      "Dev Gaglani",
+      "Siddh Sakariya"
+    ]
+  },
+  {
+    "id": "team-103",
+    "name": "mdarifhasnat99",
+    "rank": null,
+    "members": [
+      "Md Arif Hasnat",
+      "Subhadeep Karmakar"
+    ]
+  },
+  {
+    "id": "team-104",
+    "name": "sovandigar617",
+    "rank": null,
+    "members": [
+      "SOVAN DIGAR"
+    ]
+  },
+  {
+    "id": "team-105",
+    "name": "anweshasural04",
+    "rank": null,
+    "members": [
+      "Anwesha Sural"
+    ]
+  },
+  {
+    "id": "team-106",
+    "name": "anmolsarraf2975",
+    "rank": null,
+    "members": [
+      "Anmol Sarraf"
+    ]
+  },
+  {
+    "id": "team-107",
+    "name": "sayankar1025",
+    "rank": null,
+    "members": [
+      "Sayan Kar"
+    ]
+  },
+  {
+    "id": "team-108",
+    "name": "a9498764",
+    "rank": null,
+    "members": [
+      "Arpan"
+    ]
+  },
+  {
+    "id": "team-109",
+    "name": "Hacker",
+    "rank": null,
+    "members": [
+      "Priobrata Mondal",
+      "Arpan Kundu Modak",
+      "Pratik Das",
+      "Sabir Mallik"
+    ]
+  },
+  {
+    "id": "team-110",
+    "name": "rohankumard704",
+    "rank": null,
+    "members": [
+      "Rohan Das"
+    ]
+  },
+  {
+    "id": "team-111",
+    "name": "CodeCatalyst",
+    "rank": null,
+    "members": [
+      "Purba Ghosh",
+      "Abdul Muksit SK",
+      "Subham Jha"
+    ]
+  },
+  {
+    "id": "team-112",
+    "name": "Hack Buddies",
+    "rank": null,
+    "members": [
+      "Pritam Ghosh",
+      "Debanshu Roy",
+      "Nilavo Banerjee"
+    ]
+  },
+  {
+    "id": "team-113",
+    "name": "mayukh.sen120",
+    "rank": null,
+    "members": [
+      "Mayukh Sen"
+    ]
+  },
+  {
+    "id": "team-114",
+    "name": "Midnight Hackers",
+    "rank": null,
+    "members": [
+      "Sourik Banerjee",
+      "Subhadip Ghosh",
+      "Subhajit Chakraborty",
+      "Sowdarjya Kolay"
+    ]
+  },
+  {
+    "id": "team-115",
+    "name": "Infinity Coders",
+    "rank": null,
+    "members": [
+      "Sagnik Chakraborty",
+      "Sayak Bhattacharyya"
+    ]
+  },
+  {
+    "id": "team-116",
+    "name": "ajha82703",
+    "rank": null,
+    "members": [
+      "Aman Jha"
+    ]
+  },
+  {
+    "id": "team-117",
+    "name": "denji200525",
+    "rank": null,
+    "members": [
+      "Himangshu sikder"
+    ]
+  },
+  {
+    "id": "team-118",
+    "name": "souviksmp123",
+    "rank": null,
+    "members": [
+      "Souvik Singha Mahapatra"
+    ]
+  },
+  {
+    "id": "team-119",
+    "name": "Heisenburger",
+    "rank": null,
+    "members": [
+      "Anagh Biswas",
+      "Swastik Basu",
+      "Suprojit Mallick"
+    ]
+  },
+  {
+    "id": "team-120",
+    "name": "Devx",
+    "rank": null,
+    "members": [
+      "Anik Ghosh",
+      "Anish Guha"
+    ]
+  },
+  {
+    "id": "team-121",
+    "name": "Shadow Coders",
+    "rank": null,
+    "members": [
+      "Aditya Paul",
+      "Harsh Vardhan",
+      "Vishal Jha",
+      "Ajay Sharma"
+    ]
+  },
+  {
+    "id": "team-122",
+    "name": "21rajaiswal",
+    "rank": null,
+    "members": [
+      "Karan Tulshain",
+      "Raj Jaishwal"
+    ]
+  },
+  {
+    "id": "team-123",
+    "name": "AXON",
+    "rank": null,
+    "members": [
+      "Agni Pratap Pramanik",
+      "Moupriya Ghosh",
+      "Subhra Dey",
+      "Aradhya Bandyopadhyay"
+    ]
+  },
+  {
+    "id": "team-124",
+    "name": "HANSHUANA",
+    "rank": null,
+    "members": [
+      "Arunava Das",
+      "ARGHYA DUTTA",
+      "Supriya Mondal",
+      "Swastik Roy"
+    ]
+  },
+  {
+    "id": "team-125",
+    "name": "subhajitpal.23102004",
+    "rank": null,
+    "members": [
+      "Subhajit Pal"
+    ]
+  },
+  {
+    "id": "team-126",
+    "name": "Apex_codrz",
+    "rank": null,
+    "members": [
+      "BRISHTI MUKHOPADHYAY",
+      "Sankarsan Goswami"
+    ]
+  },
+  {
+    "id": "team-127",
+    "name": "Priest Kings",
+    "rank": null,
+    "members": [
+      "Rajnil Saha",
+      "Debmallar Dasgupta",
+      "Sayantan Roy"
+    ]
+  },
+  {
+    "id": "team-128",
+    "name": "nababratobiswas.11c",
+    "rank": null,
+    "members": [
+      "NABABRATO BISWAS"
+    ]
+  },
+  {
+    "id": "team-129",
+    "name": "codecrafters",
+    "rank": null,
+    "members": [
+      "Shreya Shaw"
+    ]
+  },
+  {
+    "id": "team-130",
+    "name": "CacheCrew",
+    "rank": null,
+    "members": [
+      "Aritra Saha",
+      "Anirban RoyChowdhury",
+      "SWAPRANIT CHATTERJEE"
+    ]
+  },
+  {
+    "id": "team-131",
+    "name": "joydeepkarmakar5480",
+    "rank": null,
+    "members": [
+      "Joydip Karmakar"
+    ]
+  },
+  {
+    "id": "team-132",
+    "name": "Ode to Code",
+    "rank": null,
+    "members": [
+      "SNEHA KUMARI"
+    ]
+  },
+  {
+    "id": "team-133",
+    "name": "anshu8122003",
+    "rank": null,
+    "members": [
+      "ankit kumar",
+      "Anshu singh",
+      "sk sahim",
+      "dev kumar mondal"
+    ]
+  },
+  {
+    "id": "team-134",
+    "name": "roybanhiva",
+    "rank": null,
+    "members": [
+      "Banhiva Roy"
+    ]
+  },
+  {
+    "id": "team-135",
+    "name": "manojcontain05",
+    "rank": null,
+    "members": [
+      "Manoj Das"
+    ]
+  },
+  {
+    "id": "team-136",
+    "name": "Infinity",
+    "rank": null,
+    "members": [
+      "NILOTPAL DHAR",
+      "Koushik Sasmal"
+    ]
+  },
+  {
+    "id": "team-137",
+    "name": "Bagher bacca",
+    "rank": null,
+    "members": [
+      "Sumen Roy",
+      "Sahil Das",
+      "ABHIJIT MAHATA",
+      "Rohit Kumar Dey"
+    ]
+  },
+  {
+    "id": "team-138",
+    "name": "index.html",
+    "rank": null,
+    "members": [
+      "Dipanjan Ghosh",
+      "Arju Paul",
+      "Pratyus Dutta"
+    ]
+  },
+  {
+    "id": "team-139",
+    "name": "aaravkumar.0513",
+    "rank": null,
+    "members": [
+      "Aarav Kumar",
+      "Aayush Kumar"
+    ]
+  },
+  {
+    "id": "team-140",
+    "name": "saheli222c",
+    "rank": null,
+    "members": [
+      "RIYASA SAHA",
+      "Saheli Chowdhury"
+    ]
   }
 ]
