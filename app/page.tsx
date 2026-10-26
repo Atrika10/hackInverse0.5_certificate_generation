@@ -1,4 +1,5 @@
 import SearchBar from "@/components/SearchBar";
+import { HowItWorksSection } from "@/components/HowItWorks";
 
 export default function HomePage() {
   return (
@@ -43,10 +44,7 @@ export default function HomePage() {
       </section>
 
       {/* How it works */}
-      <section
-        id="how-it-works"
-        className="relative px-6 py-20 border-t border-white/5"
-      >
+      <HowItWorksSection className="relative px-6 py-20 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-center text-2xl font-bold text-white/80 mb-12">
             How it works
@@ -69,7 +67,7 @@ export default function HomePage() {
             Special certificates for the top 3 winning teams will be released soon.
           </p>
         </div>
-      </section>
+      </HowItWorksSection>
 
       {/* Footer */}
       <footer className="border-t border-white/5 py-6 px-6 text-center text-sm text-white/20">
