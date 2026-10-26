@@ -109,11 +109,11 @@ export async function drawCertificate(
 
   ctx.shadowBlur = 0;
 
-  // ── Add "0.5" ──
+  // ── Add "1.0" ──
   ctx.font = "90px altron";
-  const text05 = "0.5";
+  const versionText = "1.0";
   const startX = lastX + 60 + ctx.measureText(lastChar).width;
-  const textWidth = ctx.measureText(text05).width;
+  const textWidth = ctx.measureText(versionText).width;
 
   // Create a horizontal linear gradient across the exact width of the text
   const gradient = ctx.createLinearGradient(startX, 0, startX + textWidth, 0);
@@ -125,7 +125,7 @@ export async function drawCertificate(
   gradient.addColorStop(1, "#333333");    // Dropping to dark gray on the far right
 
   ctx.fillStyle = gradient;
-  ctx.fillText(text05, startX, y + 5);
+  ctx.fillText(versionText, startX, y + 5);
 
   // ── Subtitle ───────────────────────
   ctx.textAlign = "center";
@@ -169,7 +169,7 @@ export async function drawCertificate(
   const bodyY = 520;
 
   const prefix = "Of ";
-  const suffix = " has successfully participated in HackInverse 0.5";
+  const suffix = " has successfully participated in HackInverse 1.0";
 
   ctx.font = "22px Instrument Sans";
   ctx.fillText(prefix, bodyX, bodyY);

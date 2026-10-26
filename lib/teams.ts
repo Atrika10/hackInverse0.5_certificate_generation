@@ -20,7 +20,7 @@ export function normalize(str: string): string {
  */
 export function getAllTeams(): Team[] {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data: Team[] = require("@/data/teams.json");
+  const data: Team[] = require("@/data/teams-1.0.json");
   return data;
 }
 

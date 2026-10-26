@@ -66,7 +66,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-10 text-center text-sm text-white/25">
-            Top 3 winning teams receive their certificates directly via registered email.
+            Special certificates for the top 3 winning teams will be released soon.
           </p>
         </div>
       </section>

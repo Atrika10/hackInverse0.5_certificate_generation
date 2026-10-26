@@ -42,7 +42,7 @@ export default function CertificateCanvas({ data }: Props) {
     setIsDownloadingPng(true);
 
     const link = document.createElement("a");
-    link.download = `HackInverse-0.5_${getSafeFilename(
+    link.download = `HackInverse-1.0_${getSafeFilename(
       data.participantName
     )}_certificate.png`;
     link.href = canvas.toDataURL("image/png");

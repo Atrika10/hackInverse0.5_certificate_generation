@@ -33,7 +33,7 @@ export default async function CertificatePage({ params }: Props) {
     notFound();
   }
 
-  // Top-ranked teams get certs via email, block direct URL access
+  // Top-ranked teams get a special certificate released separately, block direct URL access
   if (isTopRankedTeam(team)) {
     return (
       <main className="flex-1 flex items-center justify-center px-6 py-16">
@@ -42,11 +42,11 @@ export default async function CertificatePage({ params }: Props) {
             bg-amber-500/10 border border-amber-500/20 text-2xl">
             🏆
           </div>
-          <h1 className="text-xl font-bold text-white mb-3">Certificate sent via email</h1>
+          <h1 className="text-xl font-bold text-white mb-3">Special certificate coming soon</h1>
           <p className="text-white/45 text-sm leading-relaxed mb-8">
             Team <span className="text-amber-400 font-medium">{team.name}</span> finished in{" "}
-            <strong className="text-amber-400">#{team.rank} place</strong>. Certificates for top teams
-            are sent individually to each member&apos;s registered email. Please check your inbox.
+            <strong className="text-amber-400">#{team.rank} place</strong>. Top teams will receive a
+            special winner&apos;s certificate, which will be released soon. Stay tuned!
           </p>
           <Link
             href="/"

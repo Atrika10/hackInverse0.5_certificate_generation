@@ -60,8 +60,8 @@ export default async function TeamPage({ params }: Props) {
                 Congratulations on your achievement!
               </p>
               Your team finished in <strong>#{team.rank} place</strong>. As a top-ranked team,
-              your certificates have been sent individually to each member&apos;s registered email address.
-              Please check your inbox (and spam folder).
+              you will receive a special winner&apos;s certificate, which will be released soon.
+              Stay tuned!
             </div>
           ) : (
             <p className="text-white/40 text-sm mb-6">
